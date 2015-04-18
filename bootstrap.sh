@@ -4,7 +4,7 @@ sudo sed -i s/security.ubuntu.com/mirrors.yun-idc.com/g /etc/apt/sources.list
 sudo apt-get update
 
 # 
-sudo apt-get install -y default-jdk htop git gcc
+sudo apt-get install -y default-jdk htop git gcc htop
 
 # python
 sudo apt-get install -y python-dev python-pip
