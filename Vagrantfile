@@ -42,6 +42,7 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "/Users/ming/pypi", "/home/vagrant/pypi"
   config.vm.synced_folder "/Users/ming/github", "/home/vagrant/github"
   config.vm.synced_folder "/Users/ming/bitbucket", "/home/vagrant/bitbucket"
+  config.vm.synced_folder "/Users/ming/.emacs.d", "/home/vagrant/.emacs.d"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
