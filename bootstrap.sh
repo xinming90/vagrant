@@ -5,6 +5,8 @@ sudo apt-get update
 
 # 
 sudo apt-get install -y default-jdk htop git gcc htop
+sudo apt-get install -y zile
+
 
 # python
 sudo apt-get install -y python-dev python-pip
