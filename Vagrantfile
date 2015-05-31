@@ -23,7 +23,7 @@ Vagrant.configure(2) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
-
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network "private_network", ip: "192.168.33.10"
@@ -42,8 +42,10 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "/Users/ming/pypi", "/home/vagrant/pypi"
   config.vm.synced_folder "/Users/ming/github", "/home/vagrant/github"
   config.vm.synced_folder "/Users/ming/bitbucket", "/home/vagrant/bitbucket"
-  config.vm.synced_folder "/Users/ming/.emacs.d", "/home/vagrant/.emacs.d"
-
+  config.vm.synced_folder "/Users/ming/.emacs.d", "/home/vagrant/.emacs.d",
+                          type: "rsync", rsync__exclude: ".python-environments"
+  config.vm.synced_folder "/Users/ming/opt", "/home/vagrant/opt" 
+  
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
