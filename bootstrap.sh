@@ -13,6 +13,7 @@ sudo apt-get install -y python-dev python-pip
 sudo pip install virtualenv
 virtualenv ~/virtualenv
 echo ". ~/virtualenv/bin/activate" >> ~/.bashrc
+echo 'alias tmysql="sudo tail -f /var/log/mysql/mysql.log"' >> ~/.bashrc
 . ~/virtualenv/bin/activate
 pip install ipython
 pip install httpie
