@@ -44,7 +44,7 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "/Users/ming/github", "/home/vagrant/github"
   config.vm.synced_folder "/Users/ming/bitbucket", "/home/vagrant/bitbucket"
   config.vm.synced_folder "/Users/ming/.emacs.d", "/home/vagrant/.emacs.d",
-                          type: "rsync", rsync__exclude: ".python-environments"
+                          type: "rsync", rsync__exclude: [".python-environments", ".#ido.last"]
   config.vm.synced_folder "/Users/ming/opt", "/home/vagrant/opt" 
   
   # Provider-specific configuration so you can fine-tune various
