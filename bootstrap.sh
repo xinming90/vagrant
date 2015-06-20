@@ -5,17 +5,17 @@ sudo apt-get update
 
 # 
 sudo apt-get install -y default-jdk htop git gcc htop
-sudo apt-get install -y zile
+sudo apt-get install -y emacs zile
 
 
 # python
 sudo apt-get install -y python-dev python-pip
-sudo pip install virtualenv
+sudo pip install virtualenv -i http://pypi.douban.com/simple
 virtualenv ~/virtualenv
 echo ". ~/virtualenv/bin/activate" >> ~/.bashrc
 echo 'alias tmysql="sudo tail -f /var/log/mysql/mysql.log"' >> ~/.bashrc
 . ~/virtualenv/bin/activate
-pip install ipython
-pip install httpie
+pip install ipython -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install httpie -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 
 #curl https://raw.githubusercontent.com/xinming90/vim/master/install.sh | sh -x
