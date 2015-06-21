@@ -17,5 +17,11 @@ echo 'alias tmysql="sudo tail -f /var/log/mysql/mysql.log"' >> ~/.bashrc
 . ~/virtualenv/bin/activate
 pip install ipython -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install httpie -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install pymysql -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 
-#curl https://raw.githubusercontent.com/xinming90/vim/master/install.sh | sh -x
+
+# mysql
+sudo apt-get install -y mysql-server
+sudo sed -i 's/^#general_log_file/general_log_file/' /etc/mysql/my.cnf
+sudo sed -i 's/^#general_log/general_log/' my.cnf
+sudo service mysql restart
