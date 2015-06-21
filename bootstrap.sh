@@ -25,3 +25,14 @@ sudo apt-get install -y mysql-server
 sudo sed -i 's/^#general_log_file/general_log_file/' /etc/mysql/my.cnf
 sudo sed -i 's/^#general_log/general_log/' my.cnf
 sudo service mysql restart
+
+
+# zsh
+sudo apt-get install zsh
+sudo chsh -s /usr/bin/zsh vagrant
+echo '#' > ~/.zshrc
+echo "export ZSH=$HOME/.oh-my-zsh" >> ~/.zshrc
+echo 'ZSH_THEME="robbyrussell"' >> ~/.zshrc
+echo "plugins=(git)" >> ~/.zshrc
+echo 'export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"' >> ~/.zshrc
+echo 'source $ZSH/oh-my-zsh.sh' >> ~/.zshrc

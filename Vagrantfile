@@ -45,7 +45,8 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "/Users/ming/bitbucket", "/home/vagrant/bitbucket"
   config.vm.synced_folder "/Users/ming/.emacs.d", "/home/vagrant/.emacs.d",
                           type: "rsync", rsync__exclude: [".python-environments", ".#ido.last"]
-  config.vm.synced_folder "/Users/ming/opt", "/home/vagrant/opt" 
+  config.vm.synced_folder "/Users/ming/opt", "/home/vagrant/opt"
+  config.vm.synced_folder "/Users/ming/.oh-my-zsh", "/home/vagrant/.oh-my-zsh"
   
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
