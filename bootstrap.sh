@@ -4,19 +4,12 @@ sudo sed -i s/security.ubuntu.com/mirrors.yun-idc.com/g /etc/apt/sources.list
 sudo apt-get update
 
 # 
-sudo apt-get install -y default-jdk htop git gcc htop
-sudo apt-get install -y emacs zile
-
-
-# mysql
-sudo apt-get install -y mysql-server
-sudo sed -i 's/^#general_log_file/general_log_file/' /etc/mysql/my.cnf
-sudo sed -i 's/^#general_log/general_log/' my.cnf
-sudo service mysql restart
+sudo apt-get install -y default-jdk htop git gcc gdb
+sudo apt-get install -y emacs
 
 
 # zsh
-sudo apt-get install zsh
+sudo apt-get install -y zsh
 sudo chsh -s /usr/bin/zsh vagrant
 echo '#' > ~/.zshrc
 echo "export ZSH=$HOME/.oh-my-zsh" >> ~/.zshrc
@@ -37,3 +30,10 @@ pip install ipython -i http://pypi.douban.com/simple --trusted-host pypi.douban.
 pip install httpie -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install pymysql -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install sqlalchemy -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+
+
+# mysql
+sudo apt-get install -y mysql-server
+sudo sed -i 's/^#general_log_file/general_log_file/' /etc/mysql/my.cnf
+sudo sed -i 's/^#general_log/general_log/' my.cnf
+sudo service mysql restart
