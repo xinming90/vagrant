@@ -31,6 +31,7 @@ pip install httpie -i http://pypi.douban.com/simple --trusted-host pypi.douban.c
 pip install pymysql -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install sqlalchemy -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 pip install pytest -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install pylint -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 
 
 # mysql
