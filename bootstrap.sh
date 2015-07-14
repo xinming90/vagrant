@@ -5,7 +5,7 @@ sudo apt-get update
 
 # 
 sudo apt-get install -y default-jdk htop git gcc gdb
-sudo apt-get install -y emacs
+sudo apt-get install -y emacs silversearcher-ag
 
 
 # zsh
