@@ -7,6 +7,7 @@ sudo apt-get update
 
 # 
 sudo apt-get install -y default-jdk htop git gcc gdb
+# sudo apt-get install -y clang-3.6 lldb-3.6
 sudo apt-get install -y emacs silversearcher-ag
 
 
