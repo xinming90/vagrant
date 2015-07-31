@@ -39,11 +39,18 @@ pip install pylint -i http://pypi.douban.com/simple --trusted-host pypi.douban.c
 
 
 
+# emacs
+# sudo apt-get build-dep -y emacs24
+# tar -xvf emacs ...
+# ./configure --prefix=/opt/app/emacs && make && sudo make install
+echo 'alias e="/opt/app/emacs/bin/emacs"' >> ~/.zshrc
+
+
+
 # gui
 sudo apt-get install -y --no-install-recommends ubuntu-desktop
 sudo apt-get install -y gnome-terminal
 # sudo apt-get install -y eclipse-cdt
-
 
 
 
