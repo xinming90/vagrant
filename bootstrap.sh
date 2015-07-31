@@ -3,9 +3,12 @@ sudo sed -i s/archive.ubuntu.com/mirrors.yun-idc.com/g /etc/apt/sources.list
 sudo sed -i s/security.ubuntu.com/mirrors.yun-idc.com/g /etc/apt/sources.list
 sudo apt-get update
 
+
+
 # 
 sudo apt-get install -y default-jdk htop git gcc gdb
 sudo apt-get install -y emacs silversearcher-ag
+
 
 
 # zsh
@@ -17,6 +20,7 @@ echo 'ZSH_THEME="robbyrussell"' >> ~/.zshrc
 echo "plugins=(git)" >> ~/.zshrc
 echo 'export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"' >> ~/.zshrc
 echo 'source $ZSH/oh-my-zsh.sh' >> ~/.zshrc
+
 
 
 # python
@@ -34,8 +38,17 @@ pip install pytest -i http://pypi.douban.com/simple --trusted-host pypi.douban.c
 pip install pylint -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 
 
+
+# gui
+sudo apt-get install -y --no-install-recommends ubuntu-desktop
+sudo apt-get install -y gnome-terminal
+# sudo apt-get install -y eclipse-cdt
+
+
+
+
 # mysql
-sudo apt-get install -y mysql-server
-sudo sed -i 's/^#general_log_file/general_log_file/' /etc/mysql/my.cnf
-sudo sed -i 's/^#general_log/general_log/' my.cnf
-sudo service mysql restart
+# sudo apt-get install -y mysql-server
+# sudo sed -i 's/^#general_log_file/general_log_file/' /etc/mysql/my.cnf
+# sudo sed -i 's/^#general_log/general_log/' my.cnf
+# sudo service mysql restart

@@ -42,6 +42,7 @@ Vagrant.configure(2) do |config|
   # config.vm.synced_folder "../data", "/vagrant_data"
   config.vm.synced_folder "/Users/ming/pypi", "/home/vagrant/pypi"
   config.vm.synced_folder "/Users/ming/github", "/home/vagrant/github"
+  config.vm.synced_folder "/Users/ming/gitlab", "/home/vagrant/gitlab"
   config.vm.synced_folder "/Users/ming/bitbucket", "/home/vagrant/bitbucket"
   config.vm.synced_folder "/Users/ming/.emacs.d", "/home/vagrant/.emacs.d",
                           type: "rsync", rsync__exclude: [".python-environments", ".#ido.last"]
@@ -60,6 +61,7 @@ Vagrant.configure(2) do |config|
     vb.customize ["modifyvm", :id, "--ioapic", "on"  ]
     vb.memory = 2048
     vb.cpus = 3
+    # vb.gui = true
   end
   #
   # View the documentation for the provider you are using for more
