@@ -48,6 +48,36 @@ echo 'alias e="/opt/app/emacs/bin/emacs"' >> ~/.zshrc
 
 
 
+# python
+sudo apt-get install -y python-dev python-pip
+sudo pip install virtualenv -i http://pypi.douban.com/simple
+virtualenv ~/virtualenv
+echo ". ~/virtualenv/bin/activate" >> ~/.zshrc
+echo 'alias tmysql="sudo tail -f /var/log/mysql/mysql.log"' >> ~/.zshrc
+. ~/virtualenv/bin/activate
+pip install ipython -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install httpie -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install pymysql -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install sqlalchemy -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install pytest -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install pylint -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+
+
+
+# emacs
+# sudo apt-get build-dep -y emacs24
+# tar -xvf emacs ...
+# ./configure --prefix=/opt/app/emacs && make && sudo make install
+echo 'alias e="/opt/app/emacs/bin/emacs"' >> ~/.zshrc
+
+
+
+# go
+echo 'export GOROOT=$HOME/go' >> ~/.zshrc
+echo 'export PATH=$PATH:$GOROOT/bin' >> ~/.zshrc
+
+
+
 # gui
 sudo apt-get install -y --no-install-recommends ubuntu-desktop
 sudo apt-get install -y gnome-terminal
