@@ -77,6 +77,10 @@ echo 'export GOROOT=$HOME/go' >> ~/.zshrc
 echo 'export PATH=$PATH:$GOROOT/bin' >> ~/.zshrc
 
 
+# twemproxy
+# [PROBLEM] undefined macro: AC_PROG_LIBTOOL
+sudo apt-get install -y libtool
+
 
 # gui
 sudo apt-get install -y --no-install-recommends ubuntu-desktop
