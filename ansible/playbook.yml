@@ -1,0 +1,75 @@
+---
+- hosts: all
+  sudo: true
+  tasks:
+    # - copy: src=sources.list dest=/etc/apt/sources.list
+      
+    # # Run the equivalent of "apt-get update" as a separate step
+    # - apt: update_cache=yes
+
+
+    # # Update all packages to the latest version
+    # - apt: upgrade=dist
+
+
+    # - name: apt-get install
+    #   apt: name={{ item }}
+    #   with_items:
+    #     - default-jdk
+    #     - htop
+    #     - git
+    #     - gcc
+    #     - gdb
+    #     - clang-3.6
+    #     - lldb-3.6
+    #     - silversearcher-ag
+
+
+    # # python
+    # - apt: name=python-dev
+    # - apt: name=python-pip
+    # - file: path=/root/.pip state=directory
+    # - copy: src=pip.conf dest=/root/.pip/pip.conf
+    # - pip: name=virtualenv
+    # - file: path=/home/vagrant/.pip state=directory
+    # - copy: src=pip.conf dest=/home/vagrant/.pip/pip.conf
+    # - pip: name={{ item }} virtualenv=/home/vagrant/virtualenv
+    #   sudo: false
+    #   with_items:
+    #     - ipython
+    #     - httpie
+    #     - pymysql
+    #     - sqlalchemy
+    #     - pytest
+    #     - pylint
+
+
+    # # twemproxy
+    # - apt: name=libtool
+
+
+      
+    # # gui
+    # # - apt: name=ubuntu-desktop
+    # # - apt: name=gnome-terminal
+      
+    # # eclipse-cdt
+    # # - apt: name=eclipse-cdt
+
+
+    # # mysql
+    # - apt: name=mysql-server
+    # - copy: src=my.cnf dest=/etc/mysql/my.cnf
+    # - service: name=mysql state=restarted
+
+
+    # # emacs
+    # - apt: name=postfix
+    # - command: apt-get build-dep -y emacs24
+    # - copy: src=emacs-24.5.tar.xz dest=/home/vagrant/emacs-24.5.tar.xz
+    # - shell: tar xvf emacs-24.5.tar.xz && cd emacs-24.5 && ./configure --prefix=/opt/app/emacs && make install
+
+    # zsh
+    - apt: name=zsh
+    - user: name=vagrant shell=/bin/zsh
+    - copy: src=.zshrc dest=/home/vagrant/.zshrc
