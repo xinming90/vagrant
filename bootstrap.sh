@@ -92,5 +92,5 @@ sudo apt-get install -y gnome-terminal
 # mysql
 # sudo apt-get install -y mysql-server
 # sudo sed -i 's/^#general_log_file/general_log_file/' /etc/mysql/my.cnf
-# sudo sed -i 's/^#general_log/general_log/' my.cnf
+# sudo sed -i 's/^#general_log/general_log/' /etc/mysql/my.cnf
 # sudo service mysql restart
