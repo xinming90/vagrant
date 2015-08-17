@@ -33,6 +33,17 @@
     - pip: name=virtualenv
     - file: path=/home/vagrant/.pip state=directory
     - copy: src=pip.conf dest=/home/vagrant/.pip/pip.conf
+
+    # postgresql dev
+    - apt: name=libpq-dev
+    - apt: name=libgeos-dev
+
+    # lxml
+    - apt: name=libxml2-dev
+    - apt: name=libxslt-dev
+    - pip: name=lxml virtualenv=/home/vagrant/virtualenv version=3.3.5
+      sudo: false
+
     - pip: name={{ item }} virtualenv=/home/vagrant/virtualenv
       sudo: false
       with_items:
@@ -42,6 +53,8 @@
         - sqlalchemy
         - pytest
         - pylint
+        - psycopg2
+        - lxml
 
 
     # twemproxy
@@ -63,6 +76,10 @@
     - service: name=mysql state=restarted
 
 
+    # redis
+    - apt: name=redis-server
+
+
     # emacs
     - apt: name=postfix
     - command: apt-get build-dep -y emacs24
@@ -73,3 +90,11 @@
     - apt: name=zsh
     - user: name=vagrant shell=/bin/zsh
     - copy: src=.zshrc dest=/home/vagrant/.zshrc
+
+    # tmux
+    - copy: src=.tmux.conf dest=/home/vagrant/.tmux.conf
+
+    # dev_vagrant_zeus
+    - apt: name=python-mysqldb
+    - mysql_db: name=dev_vagrant_zeus
+    - mysql_user: name=eleme password=eleme priv=*.*:ALL
