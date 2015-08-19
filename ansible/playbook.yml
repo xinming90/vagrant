@@ -98,3 +98,7 @@
     - apt: name=python-mysqldb
     - mysql_db: name=dev_vagrant_zeus
     - mysql_user: name=eleme password=eleme priv=*.*:ALL
+
+    #
+    - mysql_db: name=ming
+    - mysql_user: name=ming password=ming priv=*.*:ALL
