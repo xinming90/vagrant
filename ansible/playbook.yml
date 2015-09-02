@@ -56,6 +56,17 @@
         - psycopg2
         - lxml
 
+    # lib dev
+    - apt: name=libmysqlclient-dev
+    - apt: name=libgit2-dev
+
+
+    # golang
+    - copy: src=go1.5.linux-amd64.tar.gz dest=/home/vagrant/go1.5.linux-amd64.tar.gz
+      sudo: false
+    - shell: tar xvf go1.5.linux-amd64.tar.gz
+      sudo: false
+
 
     # twemproxy
     - apt: name=libtool
@@ -74,7 +85,6 @@
     - apt: name=mysql-server
     - copy: src=my.cnf dest=/etc/mysql/my.cnf
     - service: name=mysql state=restarted
-
 
     # redis
     - apt: name=redis-server
