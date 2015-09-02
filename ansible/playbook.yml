@@ -23,6 +23,7 @@
         - clang-3.6
         - lldb-3.6
         - silversearcher-ag
+        - tshark
 
 
     # python

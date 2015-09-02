@@ -48,6 +48,7 @@ Vagrant.configure(2) do |config|
                           type: "rsync", rsync__exclude: [".python-environments", ".#ido.last"]
   config.vm.synced_folder "/Users/ming/opt", "/home/vagrant/opt"
   config.vm.synced_folder "/Users/ming/.oh-my-zsh", "/home/vagrant/.oh-my-zsh"
+  config.vm.synced_folder "/Users/ming", "/home/vagrant/ming"
   
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
