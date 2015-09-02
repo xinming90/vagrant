@@ -62,12 +62,19 @@
     - apt: name=libgit2-dev
 
 
-    # golang
+    # golang 
+    # https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz
     - copy: src=go1.5.linux-amd64.tar.gz dest=/home/vagrant/go1.5.linux-amd64.tar.gz
       sudo: false
     - shell: tar xvf go1.5.linux-amd64.tar.gz
       sudo: false
     - file: path=/home/vagrant/work  owner=vagrant group=vagrant state=directory 
+
+    # docker
+    # http://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_1.8.1-0~trusty_amd64.deb
+    - copy: src=docker-engine_1.8.1-0~trusty_amd64.deb dest=/home/vagrant/docker-engine_1.8.1-0~trusty_amd64.deb
+    - command: dpkg -i docker-engine_1.8.1-0~trusty_amd64.deb
+    - file: path=/usr/bin/docker mode=4755
 
     # twemproxy
     - apt: name=libtool
