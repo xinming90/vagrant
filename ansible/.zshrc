@@ -9,3 +9,10 @@ source $ZSH/oh-my-zsh.sh
 alias e="/opt/app/emacs/bin/emacs"
 source ~/virtualenv/bin/activate
 
+
+
+# docker
+export DOCKER_HOST=tcp://127.0.0.1:2376
+export DOCKER_CERT_PATH=/home/vagrant/docker/certs
+export DOCKER_TLS_VERIFY=1
+# export NO_PROXY=192.168.59.103
