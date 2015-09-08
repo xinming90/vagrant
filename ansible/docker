@@ -5,8 +5,7 @@
 
 # Use DOCKER_OPTS to modify the daemon startup options.
 #DOCKER_OPTS="--dns 8.8.8.8 --dns 8.8.4.4"
-DOCKER_OPTS="-H tcp://0.0.0.0:2376 --tlsverify --tlscacert=/home/vagrant/docker/certs/ca.pem --tlscert=/home/vagrant/docker/certs/server.pem --tlskey=/home/vagrant/docker/certs/serverkey.pem"
-
+DOCKER_OPTS="-H tcp://0.0.0.0:2376 --tlsverify --tlscacert=/home/vagrant/docker/certs/ca.pem --tlscert=/home/vagrant/docker/certs/server.pem --tlskey=/home/vagrant/docker/certs/serverkey.pem --registry-mirror=http://cef0a480.m.daocloud.io"
 # If you need Docker to use an HTTP proxy, it can also be specified here.
 #export http_proxy="http://127.0.0.1:3128/"
 
