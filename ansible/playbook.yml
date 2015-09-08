@@ -19,6 +19,7 @@
         - htop
         - git
         - gcc
+        - cmake
         - gdb
         - clang-3.6
         - lldb-3.6
@@ -68,7 +69,7 @@
       sudo: false
     - shell: tar xvf go1.5.linux-amd64.tar.gz
       sudo: false
-    - file: path=/home/vagrant/work  owner=vagrant group=vagrant state=directory 
+    - file: path=/home/vagrant/work owner=vagrant group=vagrant state=directory
 
     # docker
     # http://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_1.8.1-0~trusty_amd64.deb
