@@ -57,6 +57,7 @@
         - pylint
         - psycopg2
         - lxml
+        - pudb
 
     # lib dev
     - apt: name=libmysqlclient-dev
@@ -127,3 +128,39 @@
     #
     - mysql_db: name=ming
     - mysql_user: name=ming password=ming priv=*.*:ALL
+
+
+    # etcd
+    # https://github.com/coreos/etcd/releases/download/v2.2.0/etcd-v2.2.0-linux-amd64.tar.gz
+    - unarchive: src=etcd/etcd-v2.2.0-linux-amd64.tar.gz dest=/home/vagrant
+    - command: rsync -avP etcd-v2.2.0-linux-amd64/etcd /opt/bin/
+    - copy: src=etcd/etcd.default dest=/etc/default/etcd
+    # copy from kubenetes
+    - copy: src=etcd/etcd.conf dest=/etc/init/etcd.conf
+    - copy: src=etcd/etcd dest=/etc/init.d/etcd
+    - service: name=etcd state=restarted
+
+    # kubernetes
+    # https://github.com/kubernetes/kubernetes/releases/download/v1.0.6/kubernetes.tar.gz; tar xvf kubernetes.tar.gz; cp kubernetes-server-linux-amd64.tar.gz k8s/
+    - unarchive: src=k8s/kubernetes-server-linux-amd64.tar.gz dest=/home/vagrant
+    - shell: cd /home/vagrant/kubernetes/server/bin && rsync -avP kube-apiserver kube-controller-manager kube-scheduler kubelet kubectl /opt/bin/ && chmod +x /opt/bin/*
+    # kube-apiserver
+    - copy: src=k8s/kube-apiserver.conf dest=/etc/init/kube-apiserver.conf
+    - copy: src=k8s/kube-apiserver dest=/etc/init.d/kube-apiserver
+    - copy: src=k8s/kube-apiserver.default dest=/etc/default/kube-apiserver
+    - service: name=kube-apiserver state=restarted
+    # kube-controller-manager
+    - copy: src=k8s/kube-controller-manager.conf dest=/etc/init/kube-controller-manager.conf
+    - copy: src=k8s/kube-controller-manager dest=/etc/init.d/kube-controller-manager
+    - copy: src=k8s/kube-controller-manager.default dest=/etc/default/kube-controller-manager
+    - service: name=kube-controller-manager state=restarted
+    # kube-scheduler
+    - copy: src=k8s/kube-scheduler.conf dest=/etc/init/kube-scheduler.conf
+    - copy: src=k8s/kube-scheduler dest=/etc/init.d/kube-scheduler
+    - copy: src=k8s/kube-scheduler.default dest=/etc/default/kube-scheduler
+    - service: name=kube-scheduler state=restarted
+    # kubelet
+    - copy: src=k8s/kubelet.conf dest=/etc/init/kubelet.conf
+    - copy: src=k8s/kubelet dest=/etc/init.d/kubelet
+    - copy: src=k8s/kubelet.default dest=/etc/default/kubelet
+    - service: name=kubelet state=restarted
