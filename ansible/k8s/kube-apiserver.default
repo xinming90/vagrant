@@ -1,0 +1,1 @@
+KUBE_APISERVER_OPTS="--address=0.0.0.0 --service-cluster-ip-range=192.168.33.10/24 --etcd-servers=http://127.0.0.1:4001"
