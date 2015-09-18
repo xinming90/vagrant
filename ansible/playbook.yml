@@ -2,31 +2,8 @@
 - hosts: all
   sudo: true
   tasks:
-    - copy: src=sources.list dest=/etc/apt/sources.list
-      
-    # Run the equivalent of "apt-get update" as a separate step
-    - apt: update_cache=yes
-
-    # Update all packages to the latest version
-    - apt: upgrade=dist
-
-    - name: apt-get install
-      apt: name={{ item }}
-      with_items:
-        - default-jdk
-        - htop
-        - git
-        - gcc
-        - cmake
-        - gdb
-        - clang-3.6
-        - lldb-3.6
-        - silversearcher-ag
-        - tshark
-        - bridge-utils
-        - libmysqlclient-dev
-        - libgit2-dev
-
+    # init
+    - include: init.yml
 
     # python
     - include: python.yml
@@ -37,44 +14,23 @@
     # docker
     - include: docker.yml
 
-    # twemproxy
-    - apt: name=libtool
-
-      
-    # gui
-    # - apt: name=ubuntu-desktop
-    # - apt: name=gnome-terminal
-      
-    # eclipse-cdt
-    # - apt: name=eclipse-cdt
-
-
     # mysql
     - include: mysql.yml
       
-    # redis
-    - apt: name=redis-server
-
     # emacs
     - include: emacs.yml
 
     # zsh
     - include: zsh.yml
 
-    # tmux
-    - copy: src=.tmux.conf dest=/home/vagrant/.tmux.conf
-
-    # dev_vagrant_zeus
-    - apt: name=python-mysqldb
-    - mysql_db: name=dev_vagrant_zeus
-    - mysql_user: name=eleme password=eleme priv=*.*:ALL
-
-    #
-    - mysql_db: name=ming
-    - mysql_user: name=ming password=ming priv=*.*:ALL
-
     # etcd
     - include: etcd.yml
 
     # kubernetes
     - include: k8s.yml
+
+    # tmux
+    - copy: src=.tmux.conf dest=/home/vagrant/.tmux.conf
+
+    # eclipse
+    # - include: eclipse.yml

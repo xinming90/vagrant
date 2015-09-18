@@ -1,0 +1,6 @@
+# gui
+- apt: name=ubuntu-desktop
+- apt: name=gnome-terminal
+
+# eclipse-cdt
+- apt: name=eclipse-cdt
