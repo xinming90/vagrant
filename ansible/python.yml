@@ -1,0 +1,30 @@
+# python
+- apt: name=python-dev
+- apt: name=python-pip
+- file: path=/root/.pip state=directory
+- copy: src=pip.conf dest=/root/.pip/pip.conf
+- pip: name=virtualenv
+- file: path=/home/vagrant/.pip state=directory
+- copy: src=pip.conf dest=/home/vagrant/.pip/pip.conf
+
+# postgresql dev
+- apt: name=libpq-dev
+- apt: name=libgeos-dev
+
+# lxml
+- apt: name=libxml2-dev
+- apt: name=libxslt-dev
+
+# pip
+- pip: name={{ item }} virtualenv=/home/vagrant/virtualenv
+  sudo: false
+  with_items:
+    - ipython
+    - httpie
+    - pymysql
+    - sqlalchemy
+    - pytest
+    - pylint
+    - psycopg2
+    - lxml
+    - pudb

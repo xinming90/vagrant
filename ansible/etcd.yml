@@ -1,0 +1,9 @@
+# etcd
+# https://github.com/coreos/etcd/releases/download/v2.2.0/etcd-v2.2.0-linux-amd64.tar.gz
+- unarchive: src=etcd/etcd-v2.2.0-linux-amd64.tar.gz dest=/home/vagrant
+- command: rsync -avP etcd-v2.2.0-linux-amd64/etcd /opt/bin/
+- copy: src=etcd/etcd.default dest=/etc/default/etcd
+# copy from kubenetes
+- copy: src=etcd/etcd.conf dest=/etc/init/etcd.conf
+- copy: src=etcd/etcd dest=/etc/init.d/etcd
+- service: name=etcd state=restarted

@@ -7,10 +7,8 @@
     # Run the equivalent of "apt-get update" as a separate step
     - apt: update_cache=yes
 
-
     # Update all packages to the latest version
     - apt: upgrade=dist
-
 
     - name: apt-get install
       apt: name={{ item }}
@@ -26,68 +24,21 @@
         - silversearcher-ag
         - tshark
         - bridge-utils
+        - libmysqlclient-dev
+        - libgit2-dev
 
 
     # python
-    - apt: name=python-dev
-    - apt: name=python-pip
-    - file: path=/root/.pip state=directory
-    - copy: src=pip.conf dest=/root/.pip/pip.conf
-    - pip: name=virtualenv
-    - file: path=/home/vagrant/.pip state=directory
-    - copy: src=pip.conf dest=/home/vagrant/.pip/pip.conf
-
-    # postgresql dev
-    - apt: name=libpq-dev
-    - apt: name=libgeos-dev
-
-    # lxml
-    - apt: name=libxml2-dev
-    - apt: name=libxslt-dev
-    - pip: name=lxml virtualenv=/home/vagrant/virtualenv version=3.3.5
-      sudo: false
-
-    - pip: name={{ item }} virtualenv=/home/vagrant/virtualenv
-      sudo: false
-      with_items:
-        - ipython
-        - httpie
-        - pymysql
-        - sqlalchemy
-        - pytest
-        - pylint
-        - psycopg2
-        - lxml
-        - pudb
-
-    # lib dev
-    - apt: name=libmysqlclient-dev
-    - apt: name=libgit2-dev
-
+    - include: python.yml
 
     # golang
-    # https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz
-    - copy: src=go1.5.linux-amd64.tar.gz dest=/home/vagrant/go1.5.linux-amd64.tar.gz
-      sudo: false
-    - shell: tar xvf go1.5.linux-amd64.tar.gz
-      sudo: false
-    - file: path=/home/vagrant/work owner=vagrant group=vagrant state=directory
+    - include: go.yml
 
     # docker
-    # http://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_1.8.2-0~trusty_amd64.deb
-    - copy: src=docker-engine_1.8.2-0~trusty_amd64.deb dest=/home/vagrant/docker-engine_1.8.2-0~trusty_amd64.deb
-    - command: dpkg -i docker-engine_1.8.2-0~trusty_amd64.deb
-    - file: path=/usr/bin/docker mode=4755
-
-    - copy: src=docker dest=/etc/default/docker
-    - file: path=/home/vagrant/docker owner=vagrant group=vagrant state=directory
-    - synchronize: src=certs/ dest=/home/vagrant/docker/certs/
-    - service: name=docker state=restarted
-
+    - include: docker.yml
 
     # twemproxy
     - apt: name=libtool
-
 
       
     # gui
@@ -99,24 +50,16 @@
 
 
     # mysql
-    - apt: name=mysql-server-5.6
-    - copy: src=my.cnf dest=/etc/mysql/my.cnf
-    - service: name=mysql state=restarted
-
+    - include: mysql.yml
+      
     # redis
     - apt: name=redis-server
 
-
     # emacs
-    - apt: name=postfix
-    - command: apt-get build-dep -y emacs24
-    - copy: src=emacs-24.5.tar.xz dest=/home/vagrant/emacs-24.5.tar.xz
-    - shell: tar xvf emacs-24.5.tar.xz && cd emacs-24.5 && ./configure --prefix=/opt/app/emacs && make install
+    - include: emacs.yml
 
     # zsh
-    - apt: name=zsh
-    - user: name=vagrant shell=/bin/zsh
-    - copy: src=.zshrc dest=/home/vagrant/.zshrc
+    - include: zsh.yml
 
     # tmux
     - copy: src=.tmux.conf dest=/home/vagrant/.tmux.conf
@@ -130,38 +73,8 @@
     - mysql_db: name=ming
     - mysql_user: name=ming password=ming priv=*.*:ALL
 
-
     # etcd
-    # https://github.com/coreos/etcd/releases/download/v2.2.0/etcd-v2.2.0-linux-amd64.tar.gz
-    - unarchive: src=etcd/etcd-v2.2.0-linux-amd64.tar.gz dest=/home/vagrant
-    - command: rsync -avP etcd-v2.2.0-linux-amd64/etcd /opt/bin/
-    - copy: src=etcd/etcd.default dest=/etc/default/etcd
-    # copy from kubenetes
-    - copy: src=etcd/etcd.conf dest=/etc/init/etcd.conf
-    - copy: src=etcd/etcd dest=/etc/init.d/etcd
-    - service: name=etcd state=restarted
+    - include: etcd.yml
 
     # kubernetes
-    # https://github.com/kubernetes/kubernetes/releases/download/v1.0.6/kubernetes.tar.gz; tar xvf kubernetes.tar.gz; cp kubernetes-server-linux-amd64.tar.gz k8s/
-    - unarchive: src=k8s/kubernetes-server-linux-amd64.tar.gz dest=/home/vagrant
-    - shell: cd /home/vagrant/kubernetes/server/bin && rsync -avP kube-apiserver kube-controller-manager kube-scheduler kubelet kubectl /opt/bin/ && chmod +x /opt/bin/*
-    # kube-apiserver
-    - copy: src=k8s/kube-apiserver.conf dest=/etc/init/kube-apiserver.conf
-    - copy: src=k8s/kube-apiserver dest=/etc/init.d/kube-apiserver
-    - copy: src=k8s/kube-apiserver.default dest=/etc/default/kube-apiserver
-    - service: name=kube-apiserver state=restarted
-    # kube-controller-manager
-    - copy: src=k8s/kube-controller-manager.conf dest=/etc/init/kube-controller-manager.conf
-    - copy: src=k8s/kube-controller-manager dest=/etc/init.d/kube-controller-manager
-    - copy: src=k8s/kube-controller-manager.default dest=/etc/default/kube-controller-manager
-    - service: name=kube-controller-manager state=restarted
-    # kube-scheduler
-    - copy: src=k8s/kube-scheduler.conf dest=/etc/init/kube-scheduler.conf
-    - copy: src=k8s/kube-scheduler dest=/etc/init.d/kube-scheduler
-    - copy: src=k8s/kube-scheduler.default dest=/etc/default/kube-scheduler
-    - service: name=kube-scheduler state=restarted
-    # kubelet
-    - copy: src=k8s/kubelet.conf dest=/etc/init/kubelet.conf
-    - copy: src=k8s/kubelet dest=/etc/init.d/kubelet
-    - copy: src=k8s/kubelet.default dest=/etc/default/kubelet
-    - service: name=kubelet state=restarted
+    - include: k8s.yml

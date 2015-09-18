@@ -1,0 +1,24 @@
+# kubernetes
+# https://github.com/kubernetes/kubernetes/releases/download/v1.0.6/kubernetes.tar.gz; tar xvf kubernetes.tar.gz; cp kubernetes-server-linux-amd64.tar.gz k8s/
+- unarchive: src=k8s/kubernetes-server-linux-amd64.tar.gz dest=/home/vagrant
+- shell: cd /home/vagrant/kubernetes/server/bin && rsync -avP kube-apiserver kube-controller-manager kube-scheduler kubelet kubectl /opt/bin/ && chmod +x /opt/bin/*
+# kube-apiserver
+- copy: src=k8s/kube-apiserver.conf dest=/etc/init/kube-apiserver.conf
+- copy: src=k8s/kube-apiserver dest=/etc/init.d/kube-apiserver
+- copy: src=k8s/kube-apiserver.default dest=/etc/default/kube-apiserver
+- service: name=kube-apiserver state=restarted
+# kube-controller-manager
+- copy: src=k8s/kube-controller-manager.conf dest=/etc/init/kube-controller-manager.conf
+- copy: src=k8s/kube-controller-manager dest=/etc/init.d/kube-controller-manager
+- copy: src=k8s/kube-controller-manager.default dest=/etc/default/kube-controller-manager
+- service: name=kube-controller-manager state=restarted
+# kube-scheduler
+- copy: src=k8s/kube-scheduler.conf dest=/etc/init/kube-scheduler.conf
+- copy: src=k8s/kube-scheduler dest=/etc/init.d/kube-scheduler
+- copy: src=k8s/kube-scheduler.default dest=/etc/default/kube-scheduler
+- service: name=kube-scheduler state=restarted
+# kubelet
+- copy: src=k8s/kubelet.conf dest=/etc/init/kubelet.conf
+- copy: src=k8s/kubelet dest=/etc/init.d/kubelet
+- copy: src=k8s/kubelet.default dest=/etc/default/kubelet
+- service: name=kubelet state=restarted
