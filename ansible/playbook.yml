@@ -25,6 +25,7 @@
         - lldb-3.6
         - silversearcher-ag
         - tshark
+        - bridge-utils
 
 
     # python
@@ -73,9 +74,9 @@
     - file: path=/home/vagrant/work owner=vagrant group=vagrant state=directory
 
     # docker
-    # http://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_1.8.1-0~trusty_amd64.deb
-    - copy: src=docker-engine_1.8.1-0~trusty_amd64.deb dest=/home/vagrant/docker-engine_1.8.1-0~trusty_amd64.deb
-    - command: dpkg -i docker-engine_1.8.1-0~trusty_amd64.deb
+    # http://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_1.8.2-0~trusty_amd64.deb
+    - copy: src=docker-engine_1.8.2-0~trusty_amd64.deb dest=/home/vagrant/docker-engine_1.8.2-0~trusty_amd64.deb
+    - command: dpkg -i docker-engine_1.8.2-0~trusty_amd64.deb
     - file: path=/usr/bin/docker mode=4755
 
     - copy: src=docker dest=/etc/default/docker
