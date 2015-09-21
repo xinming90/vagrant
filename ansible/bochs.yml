@@ -1,0 +1,12 @@
+# bochs
+
+- apt: name=bochs
+- apt: name=bochs-term
+
+# http://oldlinux.org/Linux.old/bochs/linux-0.12-080324.zip
+- copy: src=linux-0.12-080324.zip dest=/home/vagrant/linux-0.12-080324.zip
+  sudo: false
+- shell: unzip linux-0.12-080324.zip
+  sudo: false
+- copy: src=bochsrc.bxrc dest=/home/vagrant/linux-0.12-080324/bochsrc.bxrc
+  sudo: false

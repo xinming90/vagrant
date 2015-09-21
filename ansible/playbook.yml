@@ -32,5 +32,8 @@
     # tmux
     - copy: src=.tmux.conf dest=/home/vagrant/.tmux.conf
 
-    # eclipse
+    # bochs
+    - include: bochs.yml
+
+    # # eclipse
     # - include: eclipse.yml

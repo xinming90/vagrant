@@ -25,3 +25,4 @@
     - libtool
     - python-mysqldb
     - redis-server
+    - unzip
