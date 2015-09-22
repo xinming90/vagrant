@@ -3,6 +3,10 @@
 - apt: name=bochs
 - apt: name=bochs-term
 - apt: name=bochs-sdl
+# as86
+- apt: name=bin86
+# fix compile on x86_64
+- apt: name=libc6-dev-i386
 
 # http://oldlinux.org/Linux.old/bochs/linux-0.12-080324.zip
 - copy: src=linux-0.12-080324.zip dest=/home/vagrant/linux-0.12-080324.zip
