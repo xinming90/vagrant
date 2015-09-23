@@ -5,24 +5,3 @@
 
 # Update all packages to the latest version
 - apt: upgrade=dist
-
-- name: apt-get install
-  apt: name={{ item }}
-  with_items:
-    - default-jdk
-    - htop
-    - git
-    - gcc
-    - cmake
-    - gdb
-    - clang-3.6
-    - lldb-3.6
-    - silversearcher-ag
-    - tshark
-    - bridge-utils
-    - libmysqlclient-dev
-    - libgit2-dev
-    - libtool
-    - python-mysqldb
-    - redis-server
-    - unzip

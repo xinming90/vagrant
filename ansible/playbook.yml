@@ -5,6 +5,9 @@
     # init
     - include: init.yml
 
+    # apt
+    - include: apt.yml
+
     # python
     - include: python.yml
 
@@ -32,8 +35,8 @@
     # tmux
     - copy: src=.tmux.conf dest=/home/vagrant/.tmux.conf
 
-    # # bochs
-    # - include: bochs.yml
+    # bochs
+    - include: bochs.yml
 
     # # gui
     # - include: gui.yml
