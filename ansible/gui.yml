@@ -1,0 +1,3 @@
+# gui
+- apt: name=ubuntu-desktop
+- apt: name=gnome-terminal
