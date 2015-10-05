@@ -38,5 +38,8 @@
     # bochs
     - include: bochs.yml
 
+    # systemtap
+    - include: systemtap.yml
+
     # # gui
     # - include: gui.yml
