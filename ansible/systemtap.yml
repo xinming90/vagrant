@@ -1,0 +1,4 @@
+- apt: name=systemtap
+# http://ddebs.ubuntu.com/pool/main/l/linux/linux-image-3.13.0-65-generic-dbgsym_3.13.0-65.105_amd64.ddeb
+- copy: src=linux-image-3.13.0-65-generic-dbgsym_3.13.0-65.105_amd64.ddeb dest=/home/vagrant/linux-image-3.13.0-65-generic-dbgsym_3.13.0-65.105_amd64.ddeb
+- command: dpkg -i linux-image-3.13.0-65-generic-dbgsym_3.13.0-65.105_amd64.ddeb
