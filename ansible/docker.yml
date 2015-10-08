@@ -1,4 +1,8 @@
 # docker
+
+# aufs
+- shell: apt-get install -y linux-image-extra-$(uname -r)
+
 # http://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_1.8.2-0~trusty_amd64.deb
 - copy: src=docker-engine_1.8.2-0~trusty_amd64.deb dest=/home/vagrant/docker-engine_1.8.2-0~trusty_amd64.deb
 - command: dpkg -i docker-engine_1.8.2-0~trusty_amd64.deb
