@@ -6,6 +6,7 @@
     - git
     - gcc
     - cmake
+    - autoconf
     - gdb
     - clang-3.6
     - lldb-3.6
