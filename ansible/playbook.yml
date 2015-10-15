@@ -1,5 +1,8 @@
 ---
 - hosts: all
+  vars:
+    DOCKER_VERSION: 1.8.3
+
   sudo: true
   tasks:
     # init
