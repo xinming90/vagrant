@@ -3,5 +3,5 @@
 # Run the equivalent of "apt-get update" as a separate step
 - apt: update_cache=yes
 
-# Update all packages to the latest version
-- apt: upgrade=dist
+# # Update all packages to the latest version
+# - apt: upgrade=dist
