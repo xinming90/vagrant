@@ -2,6 +2,7 @@
 - hosts: all
   vars:
     DOCKER_VERSION: 1.8.3
+    HOME: /home/vagrant
 
   sudo: true
   tasks:
@@ -10,6 +11,9 @@
 
     # apt
     - include: apt.yml
+
+    # global
+    - include: global.yml
 
     # c
     - include: c.yml
