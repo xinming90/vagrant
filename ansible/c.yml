@@ -14,3 +14,8 @@
 
 # gdb
 - copy: src=.gdbinit dest={{ HOME }}/.gdbinit
+
+# clang
+# for irony-mode
+- apt: name=libclang-3.6-dev
+- command: ln -s /usr/bin/clang-3.6 /usr/local/bin/clang
