@@ -11,6 +11,12 @@
     # apt
     - include: apt.yml
 
+    # c
+    - include: c.yml
+
+    # java
+    apt: name=default-jdk
+
     # python
     - include: python.yml
 
@@ -28,6 +34,9 @@
 
     # zsh
     - include: zsh.yml
+
+    # redis
+    - apt: name=redis-server
 
     # etcd
     - include: etcd.yml

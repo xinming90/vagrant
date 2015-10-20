@@ -1,0 +1,10 @@
+- name: apt-get install
+  apt: name={{ item }}
+  with_items:
+    - cmake
+    - autoconf
+    - libtool
+    - gcc
+    - gdb
+    - clang-3.6
+    - lldb-3.6
