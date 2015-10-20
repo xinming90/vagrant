@@ -4,6 +4,7 @@
     - htop
     - git
     - silversearcher-ag
+    - global
     - tshark
     - bridge-utils
     - unzip
