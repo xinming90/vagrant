@@ -8,3 +8,7 @@
     - gdb
     - clang-3.6
     - lldb-3.6
+
+
+# gdb
+- copy: src=.gdbinit dest={{ HOME }}/.gdbinit
