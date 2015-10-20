@@ -41,7 +41,7 @@ Vagrant.configure(2) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
   config.vm.synced_folder "/Users/ming/pypi", "/home/vagrant/pypi", mount_options: ["ro"]
-  config.vm.synced_folder "/Users/ming/github", "/home/vagrant/github", mount_options: ["ro"]
+  config.vm.synced_folder "/Users/ming/github", "/home/vagrant/github", mount_options: ["rw"]
   config.vm.synced_folder "/Users/ming/gitlab", "/home/vagrant/gitlab", mount_options: ["ro"]
   config.vm.synced_folder "/Users/ming/bitbucket", "/home/vagrant/bitbucket", mount_options: ["ro"]
   config.vm.synced_folder "/Users/ming/.emacs.d", "/home/vagrant/.emacs.d",
