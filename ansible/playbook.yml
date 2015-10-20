@@ -12,9 +12,6 @@
     # apt
     - include: apt.yml
 
-    # global
-    - include: global.yml
-
     # c
     - include: c.yml
 

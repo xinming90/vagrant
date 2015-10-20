@@ -9,6 +9,8 @@
     - clang-3.6
     - lldb-3.6
 
+# global
+- include: global.yml
 
 # gdb
 - copy: src=.gdbinit dest={{ HOME }}/.gdbinit
