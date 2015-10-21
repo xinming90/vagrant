@@ -40,15 +40,21 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
-  config.vm.synced_folder "/Users/ming/pypi", "/home/vagrant/pypi", mount_options: ["ro"]
   config.vm.synced_folder "/Users/ming/github", "/home/vagrant/github", mount_options: ["rw"]
+
+  config.vm.synced_folder "/Users/ming/pypi", "/home/vagrant/pypi", mount_options: ["ro"]
   config.vm.synced_folder "/Users/ming/gitlab", "/home/vagrant/gitlab", mount_options: ["ro"]
   config.vm.synced_folder "/Users/ming/bitbucket", "/home/vagrant/bitbucket", mount_options: ["ro"]
-  config.vm.synced_folder "/Users/ming/.emacs.d", "/home/vagrant/.emacs.d",
-                          type: "rsync", rsync__exclude: [".python-environments", ".#ido.last"]
   config.vm.synced_folder "/Users/ming/opt", "/home/vagrant/opt", mount_options: ["ro"]
   config.vm.synced_folder "/Users/ming/.oh-my-zsh", "/home/vagrant/.oh-my-zsh", mount_options: ["ro"]
   config.vm.synced_folder "/Users/ming", "/home/vagrant/ming", mount_options: ["ro"]
+
+  config.vm.synced_folder "/Users/ming/.emacs.d", "/home/vagrant/.emacs.d",
+                          type: "rsync", rsync__exclude: [".python-environments", ".#ido.last"]
+  config.vm.synced_folder "/Users/ming/.vim", "/home/vagrant/.vim",
+                          type: "rsync", rsync__exclude: [".python-environments", ".#ido.last"]
+  config.vm.synced_folder "/Users/ming/", "/home/vagrant/", type: "rsync",
+                          rsync__args: ["-a", "--include=.vimrc", "--exclude=*"]
   
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
