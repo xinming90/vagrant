@@ -51,10 +51,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.synced_folder "/Users/ming/.emacs.d", "/home/vagrant/.emacs.d",
                           type: "rsync", rsync__exclude: [".python-environments", ".#ido.last"]
-  config.vm.synced_folder "/Users/ming/.vim", "/home/vagrant/.vim",
-                          type: "rsync", rsync__exclude: [".python-environments", ".#ido.last"]
-  # config.vm.synced_folder "/Users/ming/", "/home/vagrant/", type: "rsync",
-  #                         rsync__args: ["-a", "--include=.vimrc", "--exclude=*"]
+  config.vm.synced_folder "/Users/ming/.vim", "/home/vagrant/.vim", type: "rsync"
   
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
