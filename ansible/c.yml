@@ -5,6 +5,7 @@
     - autoconf
     - libtool
     - gcc
+    - g++
     - gdb
     - clang-3.6
     - lldb-3.6
