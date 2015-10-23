@@ -7,9 +7,11 @@ export GOPATH=$HOME/work
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$GOROOT/bin:$GOPATH/bin:/opt/bin"
 source $ZSH/oh-my-zsh.sh
 alias e="/opt/app/emacs/bin/emacs"
-source ~/virtualenv/bin/activate
 
-
+if [ -f ~/.zshrc_python ]
+then
+    source ~/.zshrc_python
+fi
 
 # docker
 # export DOCKER_HOST=tcp://127.0.0.1:2376
