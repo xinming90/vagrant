@@ -9,6 +9,9 @@
     # init
     - include: init.yml
 
+    # rc.local
+    - copy: src=rc.local dest=/etc/rc.local mode=0755
+
     # apt
     - include: apt.yml
 
@@ -16,7 +19,7 @@
     - include: c.yml
 
     # java
-    apt: name=default-jdk
+    - apt: name=default-jdk
 
     # python
     - include: python.yml
