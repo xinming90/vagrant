@@ -4,3 +4,6 @@
 # http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz
 - copy: src=emacs-24.5.tar.xz dest=/home/vagrant/emacs-24.5.tar.xz
 - shell: tar xvf emacs-24.5.tar.xz && cd emacs-24.5 && ./configure --prefix=/opt/app/emacs && make -j `nproc` && make install
+
+# rtags
+- include: rtags.yml
