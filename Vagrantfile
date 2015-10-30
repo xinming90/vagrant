@@ -49,6 +49,9 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "/Users/ming/.oh-my-zsh", "/home/vagrant/.oh-my-zsh", mount_options: ["ro"]
   config.vm.synced_folder "/Users/ming", "/home/vagrant/ming", mount_options: ["ro"]
 
+  config.vm.synced_folder "/Users/ming/bitbucket/saltstack", "/srv", owner: "www-data", group: "www-data"
+
+
   config.vm.synced_folder "/Users/ming/.emacs.d", "/home/vagrant/.emacs.d",
                           type: "rsync", rsync__exclude: [".python-environments", ".#ido.last", "irony"]
   config.vm.synced_folder "/Users/ming/.vim", "/home/vagrant/.vim", type: "rsync"
