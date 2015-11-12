@@ -15,8 +15,8 @@
     # apt
     - include: apt.yml
 
-    # c
-    - include: c.yml
+    # clang
+    - include: clang.yml
 
     # java
     - apt: name=default-jdk
