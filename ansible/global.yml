@@ -1,4 +1,5 @@
 # global
 # http://ftpmirror.gnu.org/global/global-6.5.1.tar.gz
+- apt: name=libncurses-dev
 - copy: src=global-6.5.1.tar.gz dest={{ HOME }}/global-6.5.1.tar.gz
 - shell: tar xvf global-6.5.1.tar.gz && cd global-6.5.1 && ./configure && make && make install

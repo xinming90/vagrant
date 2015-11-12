@@ -1,5 +1,8 @@
 # rtags
 # git clone git@github.com:Andersbakken/rtags.git
+# git submodule init
+# git submodule update
+- apt: name=libssl-dev
 - shell: rsync -avP {{ HOME }}/github/rtags/ {{ HOME }}/rtags/ && cd {{ HOME }}/rtags && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DEMACS=/opt/app/emacs/bin/emacs && make -j `nproc` && make install && ln -s /home/vagrant/rtags/bin/gcc-rtags-wrapper.sh /usr/local/bin/gcc && ln -s /home/vagrant/rtags/bin/gcc-rtags-wrapper.sh /usr/local/bin/c++ && ln -s /home/vagrant/rtags/bin/gcc-rtags-wrapper.sh /usr/local/bin/cc && ln -s /home/vagrant/rtags/bin/gcc-rtags-wrapper.sh /usr/local/bin/g++
 
 # screen -d -m rdm
