@@ -4,24 +4,26 @@
     - cmake
     - autoconf
     - libtool
-    - gcc
-    - g++
     - gdb
     - clang-3.6
     - lldb-3.6
+
+# clang
+# for irony-mode
+- apt: name=libclang-3.6-dev
+- file: src=/usr/bin/clang-3.6 dest=/etc/alternatives/cc state=link
+- file: src=/etc/alternatives/cc dest=/usr/bin/cc state=link
+- file: src=/usr/bin/clang++-3.6 dest=/etc/alternatives/c++ state=link
+- file: src=/etc/alternatives/c++ dest=/usr/bin/c++ state=link
+
+
+# clang-format
+- apt: name=clang-format-3.6
+- file: src=/usr/bin/clang-format-3.6 dest=/usr/local/bin/clang-format state=link
+- copy: src=.clang-format dest={{ HOME }}/.clang-format
 
 # global
 - include: global.yml
 
 # gdb
 - copy: src=.gdbinit dest={{ HOME }}/.gdbinit
-
-# clang
-# for irony-mode
-- apt: name=libclang-3.6-dev
-- command: ln -s /usr/bin/clang-3.6 /usr/local/bin/clang
-
-# clang-format
-- apt: name=clang-format-3.6
-- command: ln -s /usr/bin/clang-format-3.6 /usr/local/bin/clang-format
-- copy: src=.clang-format dest={{ HOME }}/.clang-format
