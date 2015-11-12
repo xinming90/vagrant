@@ -20,3 +20,7 @@
 # for irony-mode
 - apt: name=libclang-3.6-dev
 - command: ln -s /usr/bin/clang-3.6 /usr/local/bin/clang
+
+# clang-format
+- apt: name=clang-format-3.6
+- command: ln -s /usr/bin/clang-format-3.6 /usr/local/bin/clang-format
