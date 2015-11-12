@@ -24,3 +24,4 @@
 # clang-format
 - apt: name=clang-format-3.6
 - command: ln -s /usr/bin/clang-format-3.6 /usr/local/bin/clang-format
+- copy: src=.clang-format dest={{ HOME }}/.clang-format
