@@ -10,4 +10,5 @@
          ln -s {{ HOME }}/rtags/bin/gcc-rtags-wrapper.sh /usr/local/bin/cc &&
          ln -s {{ HOME }}/rtags/bin/gcc-rtags-wrapper.sh /usr/local/bin/c++
 
-# screen -d -m rdm
+# start rdm
+- copy: src=rdm.conf dest=/etc/init/rdm.conf

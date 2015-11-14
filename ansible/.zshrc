@@ -13,6 +13,9 @@ then
     source ~/.zshrc_python
 fi
 
+# rdm
+killall -0 rdm > /dev/null 2>&1 || sudo start rdm
+
 # docker
 # export DOCKER_HOST=tcp://127.0.0.1:2376
 # export DOCKER_CERT_PATH=/home/vagrant/docker/certs
