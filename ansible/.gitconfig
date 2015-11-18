@@ -1,0 +1,9 @@
+[user]
+	name = xinming90
+	email = panxinming90@gmail.com
+
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	st = status -sb

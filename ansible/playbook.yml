@@ -12,6 +12,9 @@
     # apt
     - include: apt.yml
 
+    # git
+    - include: git.yml
+
     # clang
     - include: clang.yml
 

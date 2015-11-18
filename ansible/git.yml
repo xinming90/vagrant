@@ -1,0 +1,3 @@
+# git
+- apt: name=git
+- copy: src=.gitconfig dest={{ HOME }}/.gitconfig
