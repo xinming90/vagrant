@@ -1,32 +1,9 @@
 # python
 - apt: name=python-dev
-- apt: name=python-pip
-- file: path=/root/.pip state=directory
-- copy: src=pip.conf dest=/root/.pip/pip.conf
-- pip: name=virtualenv
-- file: path=/home/vagrant/.pip state=directory
-- copy: src=pip.conf dest=/home/vagrant/.pip/pip.conf
 
 # pip
-- pip: name={{ item }} virtualenv=/home/vagrant/virtualenv
-  sudo: false
-  with_items:
-    - ipython
-    - httpie
-    - pymysql
-    - sqlalchemy
-    - pytest
-    - pylint
-    - pudb
-
-- copy: src=.zshrc_python dest=/home/vagrant/.zshrc_python
-
-# lxml
-- apt: name=libxml2-dev
-- apt: name=libxslt-dev
-- pip: name=lxml virtualenv=/home/vagrant/virtualenv
-
-# psycopg2
-- apt: name=libpq-dev
-- apt: name=libgeos-dev
-- pip: name=psycopg2 virtualenv=/home/vagrant/virtualenv
+- shell: wget -q https://bootstrap.pypa.io/get-pip.py -O - | python
+- file: path=/root/.pip state=directory
+- copy: src=pip.conf dest=/root/.pip/pip.conf
+- file: path=/home/vagrant/.pip state=directory
+- copy: src=pip.conf dest=/home/vagrant/.pip/pip.conf
