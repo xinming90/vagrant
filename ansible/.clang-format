@@ -2,3 +2,4 @@
 IndentWidth: 4
 IndentCaseLabels: true
 BreakBeforeBraces: Linux
+AllowShortFunctionsOnASingleLine: None
