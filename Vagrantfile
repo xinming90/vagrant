@@ -44,7 +44,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.synced_folder "/Users/ming/pypi", "/home/vagrant/pypi", mount_options: ["ro"]
   config.vm.synced_folder "/Users/ming/gitlab", "/home/vagrant/gitlab", mount_options: ["ro"]
-  config.vm.synced_folder "/Users/ming/bitbucket", "/home/vagrant/bitbucket", mount_options: ["ro"]
+  config.vm.synced_folder "/Users/ming/bitbucket", "/home/vagrant/bitbucket", mount_options: ["rw"]
   config.vm.synced_folder "/Users/ming/opt", "/home/vagrant/opt", mount_options: ["ro"]
   config.vm.synced_folder "/Users/ming/.oh-my-zsh", "/home/vagrant/.oh-my-zsh", mount_options: ["ro"]
   config.vm.synced_folder "/Users/ming", "/home/vagrant/ming", mount_options: ["ro"]

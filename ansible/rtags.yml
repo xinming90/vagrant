@@ -6,9 +6,12 @@
          cd {{ HOME }}/rtags &&
          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DEMACS=/opt/app/emacs/bin/emacs &&
          make -j `nproc` &&
-         make install &&
-         ln -s {{ HOME }}/rtags/bin/gcc-rtags-wrapper.sh /usr/local/bin/cc &&
-         ln -s {{ HOME }}/rtags/bin/gcc-rtags-wrapper.sh /usr/local/bin/c++
+         make install
+
+- file: src={{ HOME }}/rtags/bin/gcc-rtags-wrapper.sh dest=/usr/local/bin/cc state=link
+- file: src={{ HOME }}/rtags/bin/gcc-rtags-wrapper.sh dest=/usr/local/bin/c++ state=link
+- file: src={{ HOME }}/rtags/bin/gcc-rtags-wrapper.sh dest=/usr/local/bin/gcc state=link
+- file: src={{ HOME }}/rtags/bin/gcc-rtags-wrapper.sh dest=/usr/local/bin/g++ state=link
 
 # start rdm
 - copy: src=rdm.conf dest=/etc/init/rdm.conf
