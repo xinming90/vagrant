@@ -18,6 +18,9 @@
     # clang
     - include: clang.yml
 
+    # ruby
+    - include: ruby.yml
+
     # java
     - apt: name=default-jdk
 
@@ -39,14 +42,14 @@
     # zsh
     - include: zsh.yml
 
+    # tmux
+    - copy: src=.tmux.conf dest=/home/vagrant/.tmux.conf
+
     # etcd
     - include: etcd.yml
 
     # kubernetes
     - include: k8s.yml
-
-    # tmux
-    - copy: src=.tmux.conf dest=/home/vagrant/.tmux.conf
 
     # bochs
     - include: bochs.yml

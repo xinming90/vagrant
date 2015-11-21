@@ -1,0 +1,15 @@
+# ruby
+- apt: name=libssl-dev
+- apt: name=zlib1g-dev
+
+# https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.3.tar.gz
+- copy: src=ruby-2.2.3.tar.xz dest={{ HOME }}/ruby-2.2.3.tar.xz
+- shell: tar xvf ruby-2.2.3.tar.xz &&
+         cd ruby-2.2.3 &&
+         ./configure --prefix=/opt/app/ruby &&
+         make -j `nproc` &&
+         make install
+
+- shell: /opt/app/ruby/bin/gem sources --remove https://rubygems.org/ &&
+         /opt/app/ruby/bin/gem sources --add https://ruby.taobao.org/ &&
+         /opt/app/ruby/bin/gem install chef
