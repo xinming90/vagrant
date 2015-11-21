@@ -95,4 +95,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "ansible/playbook.yml"
   end
+
+  config.vm.provision "chef_solo" do |chef|
+    chef.add_recipe "redis"
+  end
 end

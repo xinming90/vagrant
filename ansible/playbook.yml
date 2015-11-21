@@ -39,9 +39,6 @@
     # zsh
     - include: zsh.yml
 
-    # redis
-    - apt: name=redis-server
-
     # etcd
     - include: etcd.yml
 
