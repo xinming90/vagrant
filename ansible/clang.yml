@@ -24,6 +24,10 @@
 - file: src=/usr/bin/clang-format-3.6 dest=/usr/local/bin/clang-format state=link
 - copy: src=.clang-format dest={{ HOME }}/.clang-format
 
+# valgrind
+- apt: name=valgrind
+- copy: src=.valgrindrc dest={{ HOME }}/.valgrindrc owner=vagrant group=vagrant
+
 # global
 - include: global.yml
 
