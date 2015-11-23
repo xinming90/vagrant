@@ -18,6 +18,7 @@
 - file: src=/etc/alternatives/cc dest=/usr/bin/cc state=link
 - file: src=/usr/bin/clang++-3.6 dest=/etc/alternatives/c++ state=link
 - file: src=/etc/alternatives/c++ dest=/usr/bin/c++ state=link
+- file: src=/usr/bin/clang-3.6 dest=/usr/bin/clang state=link
 
 # clang-format
 - apt: name=clang-format-3.6
