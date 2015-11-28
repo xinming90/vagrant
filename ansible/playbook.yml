@@ -1,7 +1,7 @@
 ---
 - hosts: all
   vars:
-    DOCKER_VERSION: 1.8.3
+    DOCKER_VERSION: 1.9.1
     HOME: /home/vagrant
 
   sudo: true

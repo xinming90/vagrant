@@ -3,7 +3,7 @@
 # aufs
 - shell: apt-get install -y linux-image-extra-$(uname -r)
 
-# http://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_1.8.3-0~trusty_amd64.deb
+# http://apt.dockerproject.org/repo/pool/main/d/docker-engine/docker-engine_1.9.1-0~trusty_amd64.deb
 - copy: src=docker-engine_{{ DOCKER_VERSION }}-0~trusty_amd64.deb dest=/home/vagrant/docker-engine_{{ DOCKER_VERSION }}-0~trusty_amd64.deb
 - command: dpkg -i docker-engine_{{ DOCKER_VERSION }}-0~trusty_amd64.deb
 - file: path=/usr/bin/docker mode=4755
