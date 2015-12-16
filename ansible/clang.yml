@@ -33,4 +33,6 @@
 - include: global.yml
 
 # gdb
+- apt: name=dpkg-dev
+- command: apt-get source libc6
 - copy: src=.gdbinit dest={{ HOME }}/.gdbinit
