@@ -13,6 +13,9 @@
 - synchronize: src=certs/ dest=/home/vagrant/docker/certs/
 - service: name=docker state=restarted
 
+# for zsh
+- copy: src=.zshrc_docker dest={{ HOME }}/.zshrc_docker
+
 ## registry
 # docker run -it -p 5000:5000 registry:2
 

@@ -7,6 +7,9 @@
          make -j `nproc` &&
          make install
 
+# for zsh
+- copy: src=.zshrc_emacs dest={{ HOME }}/.zshrc_emacs
+
 # irony-install-server
 - shell: mkdir -p /tmp/build-irony-server-0.2.0-cvs4 &&
          cd /tmp/build-irony-server-0.2.0-cvs4 &&

@@ -15,3 +15,6 @@
 
 # start rdm
 - copy: src=rdm.conf dest=/etc/init/rdm.conf
+
+# for zsh
+- copy: src=.zshrc_rtags dest={{ HOME }}/.zshrc_rtags
