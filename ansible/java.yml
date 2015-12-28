@@ -1,0 +1,8 @@
+# java
+
+# http://www.oracle.com/technetwork/java/javase/downloads/index.html
+- copy: src=jdk-{{ JAVA_VERSION }}-linux-i586.gz dest=/home/vagrant/jdk-{{ JAVA_VERSION }}-linux-i586.gz
+- shell: tar xvf jdk-{{ JAVA_VERSION }}-linux-i586.gz -C /opt/app
+
+# for zsh
+- copy: src=.zshrc_java dest={{ HOME }}/.zshrc_java

@@ -3,6 +3,7 @@
   vars:
     DOCKER_VERSION: 1.9.1
     RUBY_VERSION: 2.2.4
+    JAVA_VERSION: 8u66
     HOME: /home/vagrant
 
   sudo: true
@@ -31,11 +32,11 @@
     # # ruby
     # - include: ruby.yml
 
-    # # java
-    # - apt: name=default-jdk
-
     # # python
     # - include: python.yml
+
+    # # java
+    # - include: java.yml
 
     # # golang
     # - include: go.yml
