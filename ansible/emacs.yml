@@ -1,7 +1,7 @@
 ## emacs25
 - shell: add-apt-repository -y ppa:kelleyk/emacs &&
          apt-get update &&
-         apt-get install emacs25
+         apt-get install -y emacs25
 
 # for zsh
 - copy: src=.zshrc_emacs dest={{ HOME }}/.zshrc_emacs
