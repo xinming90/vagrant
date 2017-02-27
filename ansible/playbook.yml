@@ -5,7 +5,7 @@
     HOME: /home/ubuntu
     IRONY_VERSION: "20161106.830"
 
-  sudo: true
+  become: true
   tasks:
     # init
     - include: init.yml
