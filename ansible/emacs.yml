@@ -1,20 +1,13 @@
-# emacs
-# http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz
-- copy: src=emacs-24.5.tar.xz dest=/home/vagrant/emacs-24.5.tar.xz
-- shell: tar xvf emacs-24.5.tar.xz &&
-         cd emacs-24.5 &&
-         ./configure --prefix=/opt/app/emacs &&
-         make -j `nproc` &&
-         make install
+## emacs25
+- shell: add-apt-repository -y ppa:kelleyk/emacs &&
+         apt-get update &&
+         apt-get install emacs25
 
 # for zsh
 - copy: src=.zshrc_emacs dest={{ HOME }}/.zshrc_emacs
 
 # irony-install-server
-- shell: mkdir -p /tmp/build-irony-server-0.2.0-cvs4 &&
-         cd /tmp/build-irony-server-0.2.0-cvs4 &&
-         cmake -DCMAKE_INSTALL_PREFIX=/home/vagrant/.emacs.d/irony/ /home/vagrant/.emacs.d/elpa/irony-20151016.1420/server &&
+- shell: mkdir -p /tmp/build-irony-server &&
+         cd /tmp/build-irony-server &&
+         cmake -DCMAKE_INSTALL_PREFIX={{ HOME }}/.emacs.d/irony/ {{ HOME }}/.emacs.d/elpa/irony-{{ IRONY_VERSION }}/server &&
          cmake --build . --use-stderr --config Release --target install
-
-# rtags
-- include: rtags.yml

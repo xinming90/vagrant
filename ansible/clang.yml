@@ -7,32 +7,27 @@
     - gcc
     - g++
     - gdb
-    - clang-3.6
-    - lldb-3.6
+    - clang
+    - lldb
 
 # irony-mode
-- apt: name=libclang-3.6-dev
+- apt: name=libclang-dev
 
 # clang
-- file: src=/usr/bin/clang-3.6 dest=/etc/alternatives/cc state=link
+- file: src=/usr/bin/clang dest=/etc/alternatives/cc state=link
 - file: src=/etc/alternatives/cc dest=/usr/bin/cc state=link
-- file: src=/usr/bin/clang++-3.6 dest=/etc/alternatives/c++ state=link
+- file: src=/usr/bin/clang++ dest=/etc/alternatives/c++ state=link
 - file: src=/etc/alternatives/c++ dest=/usr/bin/c++ state=link
-- file: src=/usr/bin/clang-3.6 dest=/usr/bin/clang state=link
 
 # clang-format
-- apt: name=clang-format-3.6
-- file: src=/usr/bin/clang-format-3.6 dest=/usr/local/bin/clang-format state=link
+- apt: name=clang-format
 - copy: src=.clang-format dest={{ HOME }}/.clang-format
 
 # valgrind
 - apt: name=valgrind
-- copy: src=.valgrindrc dest={{ HOME }}/.valgrindrc owner=vagrant group=vagrant
+- copy: src=.valgrindrc dest={{ HOME }}/.valgrindrc owner={{ USER }} group={{ USER }}
 
-# global
-- include: global.yml
-
-# gdb
-- apt: name=dpkg-dev
-- command: apt-get source libc6
-- copy: src=.gdbinit dest={{ HOME }}/.gdbinit
+# # gdb
+# - apt: name=dpkg-dev
+# - command: apt-get source libc6
+# - copy: src=.gdbinit dest={{ HOME }}/.gdbinit

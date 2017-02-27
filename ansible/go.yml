@@ -1,7 +1,0 @@
-# golang
-# https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz
-- copy: src=go1.5.linux-amd64.tar.gz dest=/home/vagrant/go1.5.linux-amd64.tar.gz
-  sudo: false
-- shell: tar xvf go1.5.linux-amd64.tar.gz
-  sudo: false
-- file: path=/home/vagrant/work owner=vagrant group=vagrant state=directory

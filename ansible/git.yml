@@ -1,3 +1,4 @@
 # git
 - apt: name=git
+- apt: name=tig
 - copy: src=.gitconfig dest={{ HOME }}/.gitconfig

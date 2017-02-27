@@ -1,10 +1,9 @@
 ---
 - hosts: all
   vars:
-    DOCKER_VERSION: 1.9.1
-    RUBY_VERSION: 2.2.4
-    JAVA_VERSION: 8u66
-    HOME: /home/vagrant
+    USER: ubuntu
+    HOME: /home/ubuntu
+    IRONY_VERSION: "20161106.830"
 
   sudo: true
   tasks:
@@ -20,44 +19,11 @@
     # git
     - include: git.yml
 
-    # tmux
-    - copy: src=.tmux.conf dest=/home/vagrant/.tmux.conf
-
     # clang
     - include: clang.yml
 
     # emacs
     - include: emacs.yml
 
-    # # ruby
-    # - include: ruby.yml
-
-    # # python
-    # - include: python.yml
-
-    # # java
-    # - include: java.yml
-
-    # # golang
-    # - include: go.yml
-
-    # # docker
-    # - include: docker.yml
-
-    # # mysql
-    # - include: mysql.yml
-
-    # # etcd
-    # - include: etcd.yml
-
-    # # kubernetes
-    # - include: k8s.yml
-
-    # # bochs
-    # - include: bochs.yml
-
-    # # systemtap
-    # - include: systemtap.yml
-
-    # # gui
-    # - include: gui.yml
+    # rtags
+    - include: rtags.yml

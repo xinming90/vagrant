@@ -1,18 +1,18 @@
-# -*- mode: ruby -*-
+ # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
-Vagrant.configure(2) do |config|
+Vagrant.configure("2") do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "ubuntu14"
+  config.vm.box = "ubuntu/xenial64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -40,21 +40,12 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
-  config.vm.synced_folder "/Users/ming/github", "/home/vagrant/github", mount_options: ["rw"]
-
-  config.vm.synced_folder "/Users/ming/pypi", "/home/vagrant/pypi", mount_options: ["ro"]
-  config.vm.synced_folder "/Users/ming/gitlab", "/home/vagrant/gitlab", mount_options: ["ro"]
-  config.vm.synced_folder "/Users/ming/bitbucket", "/home/vagrant/bitbucket", mount_options: ["rw"]
-  config.vm.synced_folder "/Users/ming/opt", "/home/vagrant/opt", mount_options: ["ro"]
-  config.vm.synced_folder "/Users/ming/.oh-my-zsh", "/home/vagrant/.oh-my-zsh", mount_options: ["ro"]
-  config.vm.synced_folder "/Users/ming", "/home/vagrant/ming", mount_options: ["ro"]
-
-  config.vm.synced_folder "/Users/ming/bitbucket/saltstack", "/srv", owner: "www-data", group: "www-data"
-
-
-  config.vm.synced_folder "/Users/ming/.emacs.d", "/home/vagrant/.emacs.d",
+  config.vm.synced_folder "/Users/ming", "/home/ubuntu/ming", mount_options: ["ro"]
+  config.vm.synced_folder "/Users/ming/github", "/home/ubuntu/github", mount_options: ["rw"]
+  config.vm.synced_folder "/Users/ming/bitbucket", "/home/ubuntu/bitbucket", mount_options: ["rw"]
+  config.vm.synced_folder "/Users/ming/.oh-my-zsh", "/home/ubuntu/.oh-my-zsh", mount_options: ["ro"]
+  config.vm.synced_folder "/Users/ming/.emacs.d", "/home/ubuntu/.emacs.d",
                           type: "rsync", rsync__exclude: [".python-environments", ".#ido.last", "ido.last*", "irony"]
-  config.vm.synced_folder "/Users/ming/.vim", "/home/vagrant/.vim", type: "rsync"
   
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -91,12 +82,18 @@ Vagrant.configure(2) do |config|
   #
   # config.vm.provision "shell",
     # privileged: false,
-    # path: "bootstrap.sh"
+  # path: "bootstrap.sh"
+
+  # for ansible
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo apt install -y python
+  SHELL
+                      
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "ansible/playbook.yml"
   end
 
-  config.vm.provision "chef_solo" do |chef|
-    chef.add_recipe "redis"
-  end
+  # config.vm.provision "chef_solo" do |chef|
+  #   chef.add_recipe "redis"
+  # end
 end

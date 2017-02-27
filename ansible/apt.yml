@@ -2,9 +2,6 @@
   apt: name={{ item }}
   with_items:
     - htop
-    - git
-    - tig
     - silversearcher-ag
-    - tshark
     - bridge-utils
     - unzip

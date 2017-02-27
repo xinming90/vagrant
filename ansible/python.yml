@@ -1,9 +1,0 @@
-# python
-- apt: name=python-dev
-
-# pip
-- shell: wget -q https://bootstrap.pypa.io/get-pip.py -O - | python
-- file: path=/root/.pip state=directory
-- copy: src=pip.conf dest=/root/.pip/pip.conf
-- file: path=/home/vagrant/.pip state=directory
-- copy: src=pip.conf dest=/home/vagrant/.pip/pip.conf

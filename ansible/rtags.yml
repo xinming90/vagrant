@@ -1,10 +1,9 @@
 # rtags
-# git clone git@github.com:Andersbakken/rtags.git
-# git submodule init
-# git submodule update
-- shell: rsync -avP {{ HOME }}/github/rtags/ {{ HOME }}/rtags/ &&
+- shell: git clone git@github.com:Andersbakken/rtags.git &&
          cd {{ HOME }}/rtags &&
-         cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DEMACS=/opt/app/emacs/bin/emacs &&
+         git submodule init &&
+         git submodule update &&
+         cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=1 &&
          make -j `nproc` &&
          make install
 
@@ -14,7 +13,6 @@
 - file: src={{ HOME }}/rtags/bin/gcc-rtags-wrapper.sh dest=/usr/local/bin/g++ state=link
 
 # start rdm
-- copy: src=rdm.conf dest=/etc/init/rdm.conf
-
-# for zsh
-- copy: src=.zshrc_rtags dest={{ HOME }}/.zshrc_rtags
+- copy: src=rdm.service dest=/etc/systemd/system/rdm.service
+- shell: systemctl enable rdm.service &&
+         systemctl start rdm.service

@@ -1,0 +1,10 @@
+[Unit]
+Description=rdm
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu
+ExecStart=/usr/local/bin/rdm
+
+[Install]
+WantedBy=multi-user.target

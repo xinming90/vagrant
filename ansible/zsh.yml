@@ -1,4 +1,4 @@
 # zsh
 - apt: name=zsh
-- user: name=vagrant shell=/bin/zsh
-- copy: src=.zshrc dest=/home/vagrant/.zshrc
+- user: name={{ USER }} shell=/bin/zsh
+- copy: src=.zshrc dest={{ HOME }}/.zshrc

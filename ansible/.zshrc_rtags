@@ -1,2 +1,0 @@
-# rdm
-killall -0 rdm > /dev/null 2>&1 || sudo start rdm
