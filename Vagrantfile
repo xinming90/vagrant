@@ -17,12 +17,13 @@ Vagrant.configure("2") do |config|
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
-  # config.vm.box_check_update = false
+  config.vm.box_check_update = false
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 443, host: 443
   config.vm.network "forwarded_port", guest: 8080, host: 8080
   config.vm.network "forwarded_port", guest: 3306, host: 3306
   # Create a private network, which allows host-only access to the machine
@@ -42,6 +43,7 @@ Vagrant.configure("2") do |config|
   # config.vm.synced_folder "../data", "/vagrant_data"
   config.vm.synced_folder "/Users/ming", "/home/ubuntu/ming", mount_options: ["ro"]
   config.vm.synced_folder "/Users/ming/github", "/home/ubuntu/github", mount_options: ["rw"]
+  config.vm.synced_folder "/Users/ming/gitlab", "/home/ubuntu/gitlab", mount_options: ["rw"]
   config.vm.synced_folder "/Users/ming/bitbucket", "/home/ubuntu/bitbucket", mount_options: ["rw"]
   config.vm.synced_folder "/Users/ming/.oh-my-zsh", "/home/ubuntu/.oh-my-zsh", mount_options: ["ro"]
   config.vm.synced_folder "/Users/ming/.emacs.d", "/home/ubuntu/.emacs.d",
