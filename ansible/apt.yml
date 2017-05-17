@@ -6,3 +6,4 @@
     - bridge-utils
     - unzip
     - ifstat
+    - cloc
