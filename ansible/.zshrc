@@ -11,3 +11,10 @@ source $ZSH/oh-my-zsh.sh
 for file in `ls ~/.zshrc_*`; do
     source $file
 done
+
+
+# ming
+export DOCKER_HOST=tcp://192.168.1.10:2375
+cd ~/gitlab/falcon
+alias e=/opt/emacs/25/bin/emacs
+source ~/default/bin/activate
