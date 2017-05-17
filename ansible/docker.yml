@@ -1,0 +1,24 @@
+# for docker
+- name: apt-key docker
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+
+- name: apt_repository docker
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+    state: present
+    update_cache: yes
+
+
+- name: apt install docker-ce
+  apt:
+    name: docker-ce
+
+
+- name: copy daemon.json /etc/docker/daemon.json
+  copy:
+    src: daemon.json
+    dest: /etc/docker/daemon.json
+  notify: restart docker
