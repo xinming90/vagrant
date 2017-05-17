@@ -7,3 +7,4 @@
     - unzip
     - ifstat
     - cloc
+    - mysql-server
