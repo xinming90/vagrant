@@ -15,6 +15,8 @@ done
 
 # ming
 export DOCKER_HOST=tcp://192.168.1.10:2375
+export DOCKER_HOST=unix://
+export LD_LIBRARY_PATH=/opt/python/3.6/lib
 cd ~/gitlab/falcon
 alias e=/opt/emacs/25/bin/emacs
 alias pydoc="python -m pydoc"
